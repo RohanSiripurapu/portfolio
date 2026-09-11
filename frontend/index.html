@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rohan Siripurapu | Portfolio</title>
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         /* ---------- RESET & BASE ---------- */
@@ -83,12 +82,8 @@
         }
 
         @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            100% {
-                transform: translate(60px, -60px) scale(1.2);
-            }
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -60px) scale(1.2); }
         }
 
         /* ---------- NAVBAR ---------- */
@@ -177,7 +172,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Name Animation */
         @keyframes slideDown {
             0% { opacity: 0; transform: translateY(-30px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -211,9 +205,7 @@
         }
 
         @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
+            50% { border-color: transparent; }
         }
 
         .hero-content p {
@@ -273,7 +265,7 @@
         }
 
         .hero-image .avatar {
-          
+            
         }
 
         .hero-image .avatar img {
@@ -283,14 +275,7 @@
             object-fit: cover;
         }
 
-        @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
-            }
-            100% {
-                box-shadow: 0 30px 80px rgba(139, 92, 246, 0.5);
-            }
-        }
+        
 
         /* ---------- SECTION TITLES ---------- */
         section {
@@ -476,44 +461,7 @@
             transform: translateX(3px);
         }
 
-        /* ---------- LOADING SPINNER ---------- */
-        .projects-loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 0;
-            gap: 1rem;
-            color: #a0a0c0;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(139, 92, 246, 0.2);
-            border-top-color: #8b5cf6;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ---------- EMPTY STATE ---------- */
-        .projects-empty {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #8888aa;
-        }
-
-        .projects-empty i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: #3a3a5a;
-        }
-
-        /* ---------- TOAST NOTIFICATION ---------- */
+        /* ---------- TOAST ---------- */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -652,43 +600,20 @@
                 text-align: center;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
-            .nav-links.open {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
 
-            .hero-content h1 {
-                font-size: 2.6rem;
-            }
-            #typewriter {
-                font-size: 1.4rem;
-            }
-            .hero-image .avatar {
-                width: 250px;
-                height: 250px;
-            }
-            .about-text .stats {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-            }
-            .section-title {
-                font-size: 2.2rem;
-            }
+            .hero-content h1 { font-size: 2.6rem; }
+            #typewriter { font-size: 1.4rem; }
+            .hero-image .avatar { width: 250px; height: 250px; }
+            .about-text .stats { gap: 1.5rem; flex-wrap: wrap; }
+            .section-title { font-size: 2.2rem; }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1.2rem;
-            }
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .btn {
-                padding: 0.7rem 1.6rem;
-                font-size: 0.9rem;
-            }
+            .container { padding: 0 1.2rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .btn { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -742,8 +667,8 @@
             <div class="about-grid">
                 <div class="about-text fade-up">
                     <p>
-                        I'm a Full Stack Developer from Markapur, Andhra Pradesh, currently pursuing my B.Tech in Information Technology at Mohan Babu University (CGPA 8.05/10). 
-                        I have completed two internships at Infosys SpringBoard (TripNest and Lost & Found) where I built backend services, REST APIs, and full-stack web applications. 
+                        I'm a Full Stack Developer from Markapur, Andhra Pradesh, currently pursuing my B.Tech in Information Technology at Mohan Babu University (CGPA 8.05/10).
+                        I have completed two internships at Infosys SpringBoard (TripNest and Lost & Found) where I built backend services, REST APIs, and full-stack web applications.
                         I specialize in Java, Spring Boot, JavaScript, and React.js, with a security-conscious mindset and strong team collaboration skills.
                     </p>
                     <div class="stats">
@@ -790,20 +715,8 @@
             <h2 class="section-title fade-up">Featured <span>Projects</span></h2>
             <p class="section-sub fade-up">Some of my recent work</p>
 
-            <!-- Loading Spinner -->
-            <div id="projectsLoading" class="projects-loading">
-                <div class="spinner"></div>
-                <p>Loading projects...</p>
-            </div>
-
-            <!-- Dynamic Project Grid -->
+            <!-- Dynamic Project Grid (filled by JS) -->
             <div class="projects-grid" id="projectsGrid"></div>
-
-            <!-- Empty State -->
-            <div id="projectsEmpty" class="projects-empty" style="display: none;">
-                <i class="fas fa-folder-open"></i>
-                <p>No projects yet. Check back soon!</p>
-            </div>
         </div>
     </section>
 
@@ -827,15 +740,43 @@
     <footer>
         <div class="container">
             <div class="socials">
-                <a href="https://www.linkedin.com/in/rohan-siripurapu-a14991323/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/RohanSiripurapu" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:rohansiripurapu88@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/rohan-siripurapu-a14991323/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/RohanSiripurapu" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:rohansiripurapu88@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2026 Rohan Siripurapu. Crafted with <i class="fas fa-heart" style="color:#8b5cf6;"></i></p>
         </div>
     </footer>
 
     <script>
+        // ---------- PROJECT DATA (edit here anytime) ----------
+        const PROJECTS = [
+            {
+                icon: 'fas fa-briefcase',
+                title: 'OpusLink - Job Portal',
+                description: 'Built a full-stack job portal connecting employers and job seekers, including job posting, application management, and REST APIs using Spring Boot and MySQL.',
+                techTags: ['Spring Boot', 'MySQL', 'JavaScript'],
+                liveLink: '',
+                githubLink: '',
+            },
+            {
+                icon: 'fas fa-search-location',
+                title: 'Lost & Found Item Tracker',
+                description: 'Developed a platform to report and track lost items across campuses. Implemented backend logic for efficient item matching and retrieval with a relational database schema.',
+                techTags: ['Spring Boot', 'HTML/CSS', 'MySQL'],
+                liveLink: '',
+                githubLink: '',
+            },
+            {
+                icon: 'fas fa-plane',
+                title: 'TripNest - Travel Planner',
+                description: 'Ongoing full-stack travel planning web app. Designing backend services and REST APIs for trip itineraries and booking workflows using OOP design principles.',
+                techTags: ['Spring Boot', 'MySQL', 'REST API'],
+                liveLink: '',
+                githubLink: '',
+            },
+        ];
+
         // ---------- HAMBURGER MENU ----------
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -843,10 +784,8 @@
             navLinks.classList.toggle('open');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
+        document.querySelectorAll('.nav-links a').forEach((link) => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
         });
 
         // ---------- TYPEWRITER ----------
@@ -871,179 +810,105 @@
                 setTimeout(typeEffect, 2000);
                 return;
             }
-
             if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
                 setTimeout(typeEffect, 500);
                 return;
             }
-
-            const speed = isDeleting ? 50 : 100;
-            setTimeout(typeEffect, speed);
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
         }
-
         typeEffect();
 
         // ---------- SCROLL ANIMATIONS ----------
         const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+        fadeElements.forEach((el) => observer.observe(el));
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // ============================================================
-        // ========== CONNECT FRONTEND TO BACKEND API =================
-        // ============================================================
-
-        // Auto-detect backend URL: localhost for dev, Render URL for prod
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:5000/api'
-  : 'https://rohan-portfolio-api-425n.onrender.com/api';
-
-        // ---------- TOAST NOTIFICATION HELPER ----------
+        // ---------- TOAST ----------
         function showToast(message, type = 'info') {
             const toast = document.createElement('div');
             toast.className = `toast toast-${type}`;
-
             const icons = {
                 success: 'fa-check-circle',
                 error: 'fa-exclamation-circle',
                 info: 'fa-info-circle',
             };
-
             toast.innerHTML = `<i class="fas ${icons[type]}"></i> <span>${message}</span>`;
             document.body.appendChild(toast);
-
             setTimeout(() => toast.classList.add('show'), 10);
-
             setTimeout(() => {
                 toast.classList.remove('show');
                 setTimeout(() => toast.remove(), 400);
             }, 3500);
         }
 
-        // ---------- ESCAPE HTML (SECURITY) ----------
+        // ---------- ESCAPE HTML ----------
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
 
-        // ---------- FETCH & RENDER PROJECTS ----------
-        async function loadProjects() {
+        // ---------- RENDER PROJECTS ----------
+        function renderProjects() {
             const grid = document.getElementById('projectsGrid');
-            const loading = document.getElementById('projectsLoading');
-            const empty = document.getElementById('projectsEmpty');
-
-            try {
-                const response = await fetch(`${API_BASE}/projects`);
-
-                if (!response.ok) throw new Error('Failed to fetch projects');
-
-                const result = await response.json();
-                const projects = result.data || [];
-
-                loading.style.display = 'none';
-
-                if (projects.length === 0) {
-                    empty.style.display = 'block';
-                    return;
-                }
-
-                grid.innerHTML = projects
-                    .map(
-                        (project) => `
-                    <div class="project-card fade-up visible">
-                        <div class="icon"><i class="${project.icon || 'fas fa-code'}"></i></div>
-                        <h3>${escapeHtml(project.title)}</h3>
-                        <p>${escapeHtml(project.description)}</p>
-                        <div class="tech-tags">
-                            ${(project.techTags || [])
-                                .map((tag) => `<span>${escapeHtml(tag)}</span>`)
-                                .join('')}
-                        </div>
-                        ${
-                            project.liveLink || project.githubLink
-                                ? `<div class="project-links">
-                                    ${
-                                        project.liveLink
-                                            ? `<a href="${project.liveLink}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>`
-                                            : ''
-                                    }
-                                    ${
-                                        project.githubLink
-                                            ? `<a href="${project.githubLink}" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>`
-                                            : ''
-                                    }
-                                   </div>`
-                                : ''
-                        }
+            grid.innerHTML = PROJECTS.map((project) => `
+                <div class="project-card fade-up visible">
+                    <div class="icon"><i class="${project.icon}"></i></div>
+                    <h3>${escapeHtml(project.title)}</h3>
+                    <p>${escapeHtml(project.description)}</p>
+                    <div class="tech-tags">
+                        ${project.techTags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}
                     </div>
-                `
-                    )
-                    .join('');
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                loading.innerHTML = `
-                    <i class="fas fa-exclamation-triangle" style="font-size:2.5rem;color:#ef4444;"></i>
-                    <p style="color:#ef4444;">Could not load projects. Is the backend running?</p>
-                `;
-                showToast('Failed to load projects', 'error');
-            }
+                    ${(project.liveLink || project.githubLink) ? `
+                        <div class="project-links">
+                            ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>` : ''}
+                            ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>` : ''}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
         }
+        renderProjects();
 
-        // ---------- CONTACT FORM SUBMISSION ----------
+        // ---------- CONTACT FORM ----------
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
 
-        contactForm.addEventListener('submit', async function (e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const formData = new FormData(this);
-            const payload = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message'),
-            };
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+
+            // Build a mailto link so message actually reaches your inbox
+            const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const mailtoLink = `mailto:rohansiripurapu88@gmail.com?subject=${subject}&body=${body}`;
 
             const originalBtn = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Sending...`;
 
-            try {
-                const response = await fetch(`${API_BASE}/contact`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) throw new Error(data.message || 'Failed to send');
-
-                showToast('Message sent successfully! 🎉', 'success');
-                this.reset();
-            } catch (error) {
-                console.error('Contact form error:', error);
-                showToast(error.message || 'Something went wrong', 'error');
-            } finally {
+            // Open user's email client with pre-filled message
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+                showToast('Opening your email app... 📧', 'success');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtn;
-            }
+                contactForm.reset();
+            }, 600);
         });
-
-        // ---------- LOAD PROJECTS ON PAGE LOAD ----------
-        document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
 </body>
 </html>
