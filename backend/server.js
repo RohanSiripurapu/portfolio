@@ -13,7 +13,33 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ---------- MIDDLEWARE ----------
-app.use(cors());
+// CORS: allow localhost (dev) + Render frontend URL (prod)
+const allowedOrigins = [
+  'http://localhost:5000',
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  'http://127.0.0.1:3000',
+];
+
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (Postman, curl, mobile apps)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      // In dev, allow anything; in prod, log the rejected origin
+      if (process.env.NODE_ENV !== 'production') return callback(null, true);
+      console.warn('❌ CORS blocked origin:', origin);
+      return callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // ---------- API ROUTES ----------
@@ -35,7 +61,10 @@ app.get('/', (req, res) => {
 
 // ---------- MONGODB CONNECTION ----------
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 30000,
+    socketTimeoutMS: 45000,
+  })
   .then(() => console.log('✅ MongoDB connected successfully'))
   .catch((err) => {
     console.error('❌ MongoDB connection error:', err.message);
